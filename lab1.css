@@ -1,0 +1,116 @@
+/*styling general*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-top: 50px;
+    /*height: 400px;*/
+    background-color: #e6e6e6;
+}
+
+/*decortaor top-wraaper*/
+#top-wrapper {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+#top-wrapper::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+/*reposition logo, remove default underline of the text*/
+#logo {
+    float: left;
+    font-size: 30px;
+}
+
+#logo > a{
+    margin: 50px;
+    color: #000;
+    text-decoration: none;
+}
+
+/*reposition nav */
+nav {
+    float: right;
+}
+
+/*remove nav's children ul's dots*/
+nav > ul {
+    list-style: none;
+}
+
+/*remove nav's children ul's children*/
+nav > ul > li {
+    float: left;
+}
+
+/*display a tags horizontally, resize a tag and font-size, remove a tag default underline*/
+nav > ul > li > a {
+    display: block;
+    width: 130px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    padding-top: 5px;
+}
+
+/*responsive menu bar: when screen size >= 850px, show all nav>ul,  */
+@media (max-width: 850px) {
+    /*hide the whole nav>ul elements*/
+    nav > ul {
+        display: none;
+    }
+    nav {
+        font-size: 20px;
+        width: 70px;
+        line-height: 1.7;
+        position: relative;  /*parent is relative and it's children will relative to it absolute  */
+    }
+
+    nav:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    /*when mouse pass on ul will show all li elements, fix li elements to their parent nav*/
+    nav:hover ul {
+        display: block;
+        position: absolute;
+        background: rgba(255,255,255, 0.5);
+        width: 200px;
+        left: -50px;
+        padding-left: 20px;
+    }
+}
+
+/*when screen size>851px, span(menu) disappear and menu bar appear*/
+@media (min-width: 851px) {
+    nav > span {
+        display: none;
+    }
+}
+
+.container {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #e6e6e6;
+}
+
+.container > .imageFrame {
+    margin: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    max-width: 400px;
+}
+
+/*responsive images 80% of their parent box*/
+.container > .imageFrame > .responsive-image {
+    width: 100%;
+    max-width: 460px;
+    /*display: block;*/
+}
